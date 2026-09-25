@@ -1,0 +1,87 @@
+local TargetPlaceId = 130700367963690
+
+if game.PlaceId ~= TargetPlaceId then
+    return
+end
+
+local fully = loadstring(game:HttpGet("https://pastebin.com/raw/atzDfdkc"))()
+
+local MarketplaceService = game:GetService("MarketplaceService")
+local GameInfo = MarketplaceService:GetProductInfo(game.PlaceId)
+local GameName = GameInfo.Name
+local ScriptName = "Uav.Scripts"
+
+local Window = fully:Window({
+    Title = GameName .. " | " .. ScriptName,
+    Subtitle = "Discord | discord.gg/eYBkWuZ8bE"
+})
+
+local MainPage = Window:Tab({
+    Name = "Main",
+    Icon = "rbxassetid://138827881557940"
+})
+
+local PlayerPage = Window:Tab({
+    Name = "Player",
+    Icon = "rbxassetid://134236649319095"
+})
+
+local PremiumPage = Window:Tab({
+    Name = "Premium",
+    Icon = "rbxassetid://108839695397679"
+})
+
+local CombatPage = Window:Tab({
+    Name = "Combat",
+    Icon = "rbxassetid://123944728972740"
+})
+
+local BypassSection = MainPage:Section({
+    Name = "Player Mods",
+    Side = "Left"
+})
+
+local MovementSection = MainPage:Section({
+    Name = "Movement",
+    Side = "Left"
+})
+
+local VisualsSection = MainPage:Section({
+    Name = "Visuals",
+    Side = "Left"
+})
+
+local CharacterSection = MainPage:Section({
+    Name = "Character",
+    Side = "Left"
+})
+
+local MiscSection = MainPage:Section({
+    Name = "Miscellaneous",
+    Side = "Left"
+})
+
+local UtilitySection = MainPage:Section({
+    Name = "Utilities",
+    Side = "Left"
+})
+
+local XPSection = CombatPage:Section({
+    Name = "XP",
+    Side = "Right"
+})
+
+BypassSection:Button({
+    Name = "Gun Shop 🔫",
+    Callback = function()
+        local Players = game:GetService("Players")
+        local Player = Players.LocalPlayer
+
+        local Character = Player.Character or Player.CharacterAdded:Wait()
+        local Root = Character:WaitForChild("HumanoidRootPart")
+
+        Root.CFrame = CFrame.new(-1634, 6, -89)
+    end
+})
+
+fully:Configs(Window)
