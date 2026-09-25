@@ -1,0 +1,22 @@
+local BreezeUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kaisorius/BreezeUI/refs/heads/main/BreezeUI.lua"))()
+
+local Window = BreezeUI:CreateWindow({
+    Name = "Uav.Scripts",
+    Description = "Hub In One"
+})
+
+local Tab = Window:CreateTab("Main")
+
+local Button = Tab:Button({
+    Name = "Philly Streetz 2",
+    Description = "Click To Load Philly Streetz 2",
+    Callback = function()
+        local ScriptURL = "https://raw.githubusercontent.com/9d9qv2mhvh-ctrl/broooooooooooooooow/refs/heads/main/wbduyabwduwa"
+        local Success, Result = pcall(function()
+            return loadstring(game:HttpGet(ScriptURL))()
+        end)
+        if not Success then
+            warn("Failed to load script: " .. tostring(Result))
+        end
+    end
+})
