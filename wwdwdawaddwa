@@ -1,0 +1,24 @@
+local BreezeUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kaisorius/BreezeUI/refs/heads/main/BreezeUI.lua"))()
+
+local Window = BreezeUI:CreateWindow({
+    Name = "BreezeUI",
+    Description = "My Hub"
+})
+
+local Tab = Window:CreateTab("Main")
+
+local Button = Tab:Button({
+    Name = "Test Button",
+    Description = "Click me",
+    Callback = function()
+        print("Clicked!")
+    end
+})
+
+local Toggle = Tab:Toggle({
+    Name = "Test Toggle",
+    Description = "Enable something",
+    Callback = function(Value)
+        print("Enabled:", Value)
+    end
+}) 
